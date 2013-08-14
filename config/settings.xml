@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<swiftsettings>
+	<group name="settings_sso" app="samlsso" ishidden="0">
+		<setting name="sso_enable" type="yesno">
+			<defaultvalue>0</defaultvalue>
+		</setting>
+
+        <setting name="sso_facebook_tab" type="title" />
+        <setting name="sso_facebook" type="yesno">
+            <defaultvalue>0</defaultvalue>
+        </setting>
+        <setting name="sso_facebook_key" type="text">
+            <defaultvalue></defaultvalue>
+        </setting>
+        <setting name="sso_facebook_secret" type="text">
+            <defaultvalue></defaultvalue>
+        </setting>
+
+        <setting name="sso_twitter_tab" type="title" />
+		<setting name="sso_twitter" type="yesno">
+			<defaultvalue>0</defaultvalue>
+		</setting>
+        <setting name="sso_twitter_key" type="text">
+            <defaultvalue></defaultvalue>
+        </setting>
+        <setting name="sso_twitter_secret" type="text">
+            <defaultvalue></defaultvalue>
+        </setting>
+
+        <setting name="sso_idp_tab" type="title" />
+		<setting name="sso_entityid" type="text">
+			<defaultvalue></defaultvalue>
+		</setting>
+		<setting name="sso_url" type="url">
+			<defaultvalue>http://www.example.com/</defaultvalue>
+		</setting>
+		<setting name="sso_cer" type="text">
+			<defaultvalue></defaultvalue>
+		</setting>
+	</group>
+</swiftsettings>

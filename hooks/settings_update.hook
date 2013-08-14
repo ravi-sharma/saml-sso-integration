@@ -1,0 +1,54 @@
+<?php
+
+/**
+ * =======================================
+ * ###################################
+ * SWIFT Framework
+ *
+ * @package	SWIFT
+ * @author		Kayako Infotech Ltd.
+ * @copyright	Copyright (c) 2001-2009, Kayako Infotech Ltd.
+ * @license		http://www.kayako.com/license
+ * @link		http://www.kayako.com
+ * @filesource
+ * ###################################
+ * =======================================
+ */
+
+/**
+ * 'client_init' hook file
+ * This hook is executed after the preliminary initialization of client
+ * support center interface but before any output is sent to the user.
+ *
+ * @author Ashish Kataria
+ *
+ */
+
+// Check if Single Sign On is enabled by admin or not
+if ($this->Database->Record['name'] == "sso_enable" && $_settingValue)
+{
+	$_temp = 1;
+}
+
+if ($this->Database->Record['name'] == "sso_entityid" && isset($_temp) && $_temp && empty($_settingValue))
+{
+	SWIFT::ErrorField($this->Database->Record['name']);
+
+	$_SWIFT_UserInterfaceObject->DisplayError($this->Language->Get('titlefieldempty'), $this->Language->Get('msgfieldempty'));
+
+	$_doUpdateField = false;
+
+	$_POST['step'] = 0;
+}
+
+if ($this->Database->Record['name'] == "sso_url" && isset($_temp) && $_temp && empty($_settingValue))
+{
+	SWIFT::ErrorField($this->Database->Record['name']);
+
+	$_SWIFT_UserInterfaceObject->DisplayError($this->Language->Get('titlefieldempty'), $this->Language->Get('msgfieldempty'));
+
+	$_doUpdateField = false;
+
+	$_POST['step'] = 0;
+}
+?>

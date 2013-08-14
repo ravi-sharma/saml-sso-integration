@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+	<title>Single Sign On</title>
+	<description>Using SSO user logs in once and gains access to all systems without being prompted to log in again.</description>
+	<author>Kayako</author>
+	<version>1</version>
+	<compatibleWith>4.0.00</compatibleWith>
+</config>

@@ -1,0 +1,50 @@
+<?php
+
+/**
+ * =======================================
+ * ###################################
+ * SWIFT Framework
+ *
+ * @package	SWIFT
+ * @author		Kayako Infotech Ltd.
+ * @copyright	Copyright (c) 2001-2009, Kayako Infotech Ltd.
+ * @license		http://www.kayako.com/license
+ * @link		http://www.kayako.com
+ * @filesource
+ * ###################################
+ * =======================================
+ */
+
+/**
+ * 'client_init' hook file
+ * This hook is executed after the preliminary initialization of client
+ * support center interface but before any output is sent to the user.
+ *
+ * @author Ashish Kataria
+ *
+ */
+
+$_idpUrl	= $_SWIFT->Settings->Get('sso_url');
+$_idpCert = $_SWIFT->Settings->Get('sso_cer');
+
+// Check if twitter login is enabled by admin or not
+if ($_SWIFT->Settings->Get('sso_enable') && $_SWIFT->Settings->Get('sso_twitter')) {
+	$this->Template->Assign('_twitterEnable', true);
+}
+
+// Check if facebook login is enabled by admin or not
+if ($_SWIFT->Settings->Get('sso_enable') && $_SWIFT->Settings->Get('sso_facebook')) {
+	$this->Template->Assign('_facebookEnable', true);
+}
+
+// Check if facebook login is enabled by admin or not
+if ($_SWIFT->Settings->Get('sso_enable') && !empty($_idpUrl) && !empty($_idpCert)) {
+	$this->Template->Assign('_ssoIdpEnable', true);
+}
+
+$_authSource = $this->Cookie->Get('authsource');
+if (isset($_authSource)) {
+	$this->Template->Assign('_ssoLogin', $_authSource);
+}
+
+?>
