@@ -37,5 +37,11 @@
 		<setting name="sso_cer" type="text">
 			<defaultvalue></defaultvalue>
 		</setting>
+		<setting name="sso_attribute_fullname" type="text">
+			<defaultvalue>fullname</defaultvalue>
+		</setting>
+		<setting name="sso_attribute_email" type="text">
+			<defaultvalue>email</defaultvalue>
+		</setting>
 	</group>
 </swiftsettings>

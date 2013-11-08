@@ -151,68 +151,61 @@ class Controller_SSO extends Controller_client
     }
 
 
-    /**
-     * Function for handling login/ logout request for facebook
-     *
-     * @author Ashish Kataria
-     * @param  string $_output If set means user has been authenticated
-     */
-    public function Idp($_output = "")
-    {
-        $_SWIFT = SWIFT::GetInstance();
+	/**
+	 * Function for handling login/ logout request for facebook
+	 *
+	 * @author Ashish Kataria
+	 *
+	 * @param  string $_output If set means user has been authenticated
+	 */
+	public function Idp($_output = "")
+	{
+		$_SWIFT = SWIFT::GetInstance();
 
-        $this->_samlSsoWrapperObject->SetSamlSsoSettings();
+		$this->_samlSsoWrapperObject->SetSamlSsoSettings();
 
-        if ("Login" == $_output)
-        {
-            $_samlObject = $this->_samlSsoWrapperObject->GetSamlSsoInstance();
+		if ("Login" == $_output) {
+			$_SAML = $this->_samlSsoWrapperObject->GetSamlSsoInstance();
 
-            if ($_samlObject->isValid())
-            {
-                $this->_authSource = "Idp";
-                $_userDesignation = '';
+			if ($_SAML->isValid()) {
+				$this->_authSource = "Idp";
+				$_userDesignation  = $_emailAttribute = $_fullNameAttribute = '';
 
-				// Claims Attribute URL for ADFS 2.0 defines here.
-				$_claimFullname = 'http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name';
-				$_claimEmail    = 'http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress';
+				$_emailAttribute    = $_SWIFT->Settings->Get('sso_attribute_email');
+				$_fullNameAttribute = $_SWIFT->Settings->Get('sso_attribute_fullname');
 
-                /**
-                 * Retrieve the users attributes
-                 */
-                $attributes = $_samlObject->getAttributes();
+				if (empty($_emailAttribute) || empty($_fullNameAttribute)) {
+					self::ErrorMsg('sso_noAttributeDefined');
+				}
 
-                /**
-                 * Check to see if a user designation has been provided
-                 */
-                if (isset($attributes['designation']['0']))
-                {
-                    $_userDesignation = $attributes['designation']['0'];
-                }
+				// Retrieve the users attributes
+				$attributes = $_SAML->getAttributes();
 
-				if (isset($attributes['fullname']['0']) && isset($attributes['email']['0'])) {                     // If its SAML generated response
-					self::UserChecking($attributes['fullname']['0'], $attributes['email']['0'], $_userDesignation);
-				} elseif (isset($attributes[$_claimFullname]['0']) && isset($attributes[$_claimEmail]['0'])) {     // If its ADFS2.0 generated response
-					self::UserChecking($attributes[$_claimFullname]['0'], $attributes[$_claimEmail]['0'], $_userDesignation);
+				// Check to see if a user designation has been provided
+				if (isset($attributes['designation']['0'])) {
+					$_userDesignation = $attributes['designation']['0'];
+				}
+
+				if (isset($attributes[$_fullNameAttribute]['0']) && isset($attributes[$_emailAttribute]['0'])) {
+					self::UserChecking($attributes[$_fullNameAttribute]['0'], $attributes[$_emailAttribute]['0'], $_userDesignation);
 				} else {
 					self::ErrorMsg('idp_invalidResponse');
 				}
+			} else {
+				self::ErrorMsg('sso_invalidResponse');
+			}
+		} else {
+			if ("Logout" == $_output) {
+				$this->_authSource = $_SWIFT->Settings->Get('sso_entityid');
 
-            } else {
-                self::ErrorMsg('sso_invalidResponse');
-            }
-        } else {
-            if ("Logout" == $_output)
-            {
-                $this->_authSource = $_SWIFT->Settings->Get('sso_entityid');
+				self::Logout();
+			} else {
+				self::SetCookies();
 
-                self::Logout();
-            } else {
-                self::SetCookies();
-
-                $this->_samlSsoWrapperObject->SendAuthRequest();
-            }
-        }
-    }
+				$this->_samlSsoWrapperObject->SendAuthRequest();
+			}
+		}
+	}
 
     /**
      * Function for checking various conditions for login user
@@ -240,7 +233,7 @@ class Controller_SSO extends Controller_client
             $_languageID = $_SWIFT->TemplateGroup->GetProperty('languageid');
 
             // No user found then create one
-            $_SWIFT_UserObject = SWIFT_User::Create("2", '', SWIFT_User::SALUTATION_NONE, $_name, $_designation, '', true, true, array($_email), substr(BuildHash(), 0, 12), $_languageID, false, true, false, false, false, true, true);
+            $_SWIFT_UserObject = SWIFT_User::Create($_SWIFT->TemplateGroup->GetRegisteredUserGroupID(), '', SWIFT_User::SALUTATION_NONE, $_name, $_designation, '', true, true, array($_email), substr(BuildHash(), 0, 12), $_languageID, false, true, false, false, false, true, true);
 
             $_userID = SWIFT_UserEmail::RetrieveUserIDOnUserEmail($_email);
 

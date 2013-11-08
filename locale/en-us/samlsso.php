@@ -18,7 +18,8 @@
 
 $__LANG = array(
 	// ======= Genral =======
-	"sso_invalidResponse"	=> "Invalid SAML response",
-    "idp_invalidResponse"   => "Invalid response from IdP (Please check your IdP configuration, it should return fullname and email with fullname and email as there keys)",
+	"sso_invalidResponse"    => "Invalid SAML response",
+	"idp_invalidResponse"    => "Invalid response from IdP (Please check your IdP configuration, it should return fullname and email with fullname and email as there keys)",
+	"sso_noAttributeDefined" => "No attribute is defined for fullname and email in Single Sign On settings under SAML IdP",
 );
 ?>
