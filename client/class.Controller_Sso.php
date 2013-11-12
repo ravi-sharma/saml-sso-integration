@@ -150,9 +150,8 @@ class Controller_SSO extends Controller_client
         }
     }
 
-
 	/**
-	 * Function for handling login/ logout request for facebook
+	 * Function for handling login/ logout request for IdP
 	 *
 	 * @author Ashish Kataria
 	 *
