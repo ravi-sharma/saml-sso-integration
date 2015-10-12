@@ -5,11 +5,11 @@
  * ###################################
  * SWIFT Framework
  *
- * @package	SWIFT
- * @author		Kayako Infotech Ltd.
- * @copyright	Copyright (c) 2001-2009, Kayako Infotech Ltd.
- * @license		http://www.kayako.com/license
- * @link		http://www.kayako.com
+ * @package        SWIFT
+ * @author         Kayako Infotech Ltd.
+ * @copyright      Copyright (c) 2001-2015, Kayako Infotech Ltd.
+ * @license        http://www.kayako.com/license
+ * @link           http://www.kayako.com
  * @filesource
  * ###################################
  * =======================================
@@ -17,18 +17,18 @@
 
 $__LANG = array(
 	// ====== General ========
-	"settings_sso"	=> "Single Sign On",
-	"sso_enable"	=> "Enable Single Sign On",
+	"settings_sso"           => "Single Sign On",
+	"sso_enable"             => "Enable Single Sign On",
 
-    "sso_facebook_tab"      => "Facebook",
-    "sso_facebook"	        => "Enable Facebook Authentication",
-    "sso_facebook_key"	    => "Facebook API Key",
-    "sso_facebook_secret"	=> "Facebook API Secret",
+	"sso_facebook_tab"       => "Facebook",
+	"sso_facebook"           => "Enable Facebook Authentication",
+	"sso_facebook_key"       => "Facebook API Key",
+	"sso_facebook_secret"    => "Facebook API Secret",
 
-    "sso_twitter_tab"       => "Twitter",
-	"sso_twitter"	        => "Enable Twitter Authentication",
-    "sso_twitter_key"	    => "Twitter Consumer key",
-    "sso_twitter_secret"    => "Twitter Consumer secret",
+	"sso_twitter_tab"        => "Twitter",
+	"sso_twitter"            => "Enable Twitter Authentication",
+	"sso_twitter_key"        => "Twitter Consumer key",
+	"sso_twitter_secret"     => "Twitter Consumer secret",
 
 	"sso_idp_tab"            => "SAML IdP",
 	"sso_entityid"           => "Entity ID i.e. the index of your IdP metadata array",
