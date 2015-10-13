@@ -1,20 +1,19 @@
 <?php
-
 /**
- * =======================================
- * ###################################
+ * ###############################################
+ *
  * SWIFT Framework
+ * _______________________________________________
+ *
+ * @author         Varun Shoor
  *
  * @package        SWIFT
- * @author         Kayako Infotech Ltd.
- * @copyright      Copyright (c) 2001-2015, Kayako Infotech Ltd.
+ * @copyright      Copyright (c) 2001-2015, Kayako
  * @license        http://www.kayako.com/license
  * @link           http://www.kayako.com
- * @filesource
- * ###################################
- * =======================================
+ *
+ * ###############################################
  */
-
 
 $__LANG = array(
 	// ======= Genral =======
