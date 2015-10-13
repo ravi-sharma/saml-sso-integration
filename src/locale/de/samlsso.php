@@ -1,18 +1,8 @@
 <?php
-
 /**
- * =======================================
- * ###################################
- * SWIFT Framework
- *
- * @package	SWIFT
- * @author		Kayako Infotech Ltd.
- * @copyright	Copyright (c) 2001-2009, Kayako Infotech Ltd.
- * @license		http://www.kayako.com/license
- * @link		http://www.kayako.com
- * @filesource
- * ###################################
- * =======================================
+ * @copyright      2001-2015 Kayako
+ * @license        https://www.freebsd.org/copyright/freebsd-license.html
+ * @link           https://github.com/kayako/saml-sso-app
  */
 
 
