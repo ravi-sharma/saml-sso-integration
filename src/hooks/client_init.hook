@@ -13,7 +13,6 @@
  * @author Ashish Kataria
  *
  */
-
 $_idpUrl  = $_SWIFT->Settings->Get('sso_url');
 $_idpCert = $_SWIFT->Settings->Get('sso_cer');
 

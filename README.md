@@ -11,6 +11,8 @@ Security Assertion Markup Language is an XML-based open standard data format for
 
 This is a Kayako module for SAML Single Sign-On integration for Kayako version 4.50. Using single sign-on (SSO) will permit a single action of user authentication and authorization to access all computers and systems where he has access permission, without the need to enter multiple passwords.
 
+Installation Wiki: https://forge.kayako.com/projects/sso/wiki
+
 Features
 =======================
 

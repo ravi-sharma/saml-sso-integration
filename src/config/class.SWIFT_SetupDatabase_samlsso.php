@@ -13,7 +13,6 @@
  */
 class SWIFT_SetupDatabase_samlsso extends SWIFT_SetupDatabase
 {
-
 	/**
 	 * Constructor - Calls parent class constructor which sets the module name
 	 */
