@@ -2,7 +2,7 @@
 /**
  * @copyright      2001-2015 Kayako
  * @license        https://www.freebsd.org/copyright/freebsd-license.html
- * @link           https://github.com/kayako/saml-sso-app
+ * @link           https://github.com/kayako/saml-sso-integration
  */
 
 
