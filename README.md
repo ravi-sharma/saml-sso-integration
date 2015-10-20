@@ -14,12 +14,11 @@ This is a Kayako module for SAML Single Sign-On integration for Kayako version 4
 Installation Setups
 =======================
 1. Download and extract zip file of SSO app.
-2. Move the src folder to helpdesk_installation/__apps folder.
-3. Rename the src folder to sso and make sure all files of src folder are available under helpdesk_installation/__apps/sso
-4. Now go to Admin Panel of your helpdesk and click on ‘Apps’ in left side menu.
-5. Now click on SSO app and you can see the details regarding this app. Click on ‘Install button’ for SSO app installation.
-6. Now SSO is installed in your helpdesk. If you want to uninstall it, then simply click on ‘Uninstall’ button.
-7. Click on ‘SSO’ under ‘settings’ in left side menu. Enter your SSO settings and click on ‘update’ to save SSO details.
+2. Make a symlink of /src in helpdesk_installation/__apps/samlsso and make sure all files of src folder are available under helpdesk_installation/__apps/samlsso.
+3. Now go to Admin Panel of your helpdesk and click on ‘Apps’ in left side menu.
+4. Now click on SSO app and you can see the details regarding this app. Click on ‘Install button’ for SSO app installation.
+5. Now SSO is installed in your helpdesk. If you want to uninstall it, then simply click on ‘Uninstall’ button.
+6. Click on ‘SSO’ under ‘settings’ in left side menu. Enter your SSO settings and click on ‘update’ to save SSO details.
 
 Installation Wiki: https://forge.kayako.com/projects/sso/wiki
 
